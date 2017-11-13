@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="alert alert-primary" *ngFor="let item of messageList">
+      <strong>{{ item.title }}</strong> {{ item.message }}
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <mat-form-field>
+      <input type="text" matInput name="title" [(ngModel)]="message.title"
+        placeholder="Cím">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput name="message" [(ngModel)]="message.message"
+          placeholder="Üzenet">
+      </mat-form-field>
+    <button (click)="sendMessage()" mat-raised-button color="primary">küldés</button>
+  </div>
+</div>

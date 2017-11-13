@@ -1,0 +1,6 @@
+table th {
+  cursor: pointer;
+}
+table th:first-child {
+  cursor: default;
+}

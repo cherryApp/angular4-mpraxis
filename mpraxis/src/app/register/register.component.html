@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <form (submit)="submitData()" action="">
+      <mat-form-field>
+        <input name="name" [(ngModel)]="register.name" matInput placeholder="Név" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <input name="bdate" [(ngModel)]="register.bdate" matInput [matDatepicker]="picker" placeholder="Szül. dátum">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary">regisztráció</button>
+    </form>
+  </div>
+  <div class="col-1"></div>
+</div>

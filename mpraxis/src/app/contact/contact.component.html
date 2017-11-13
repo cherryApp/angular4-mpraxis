@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th *ngFor="let key of tableKeys">
+            {{ key }}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tableData; index as i">
+          <td *ngFor="let key of tableKeys; index as ki">
+            <input [disabled]="ki == 0" class="form-control" type="text" [(ngModel)]="row[key]">
+          </td>
+          <td>
+            <div class="btn-group">
+              <button (click)="updateRow(row)" class="btn btn-info">
+                  <i class="fa fa-refresh"></i>
+              </button>
+              <button (click)="deleteRow(row)" class="btn btn-danger">
+                  <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills float-right">
+      <li class="nav-item" *ngFor="let item of menuItems">
+        <a class="nav-link" routerLink="{{item.link}}">{{item.title}}</a>
+      </li>
+    </ul>
+  </nav>
+  <h3 class="text-muted">Project name</h3>
+</div>

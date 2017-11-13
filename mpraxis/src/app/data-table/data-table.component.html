@@ -1,0 +1,32 @@
+<input class="form-control" type="text" [(ngModel)]="searchPhrase">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th (click)="startOrder('key')">
+          <i *ngIf="orderKey == 'key' && orderDir == 'desc'" class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+          <i *ngIf="orderKey == 'key' && orderDir == 'asc'" class="fa fa-sort-amount-asc" aria-hidden="true"></i> Kulcs
+      </th>
+      <th (click)="startOrder('name')">
+        <i *ngIf="orderKey == 'name' && orderDir == 'desc'" class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        <i *ngIf="orderKey == 'name' && orderDir == 'asc'" class="fa fa-sort-amount-asc" aria-hidden="true"></i> Név
+      </th>
+      <th (click)="startOrder('code')">
+        <i *ngIf="orderKey == 'code' && orderDir == 'desc'" class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+        <i *ngIf="orderKey == 'code' && orderDir == 'asc'" class="fa fa-sort-amount-asc" aria-hidden="true"></i> Kód
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let club of liga | clubFilter:searchPhrase | clubOrder:orderKey:orderDir; index as i">
+      <td>{{ (i+1) }}.</td>
+      <td>{{ club.key }}</td>
+      <td>{{ club.name }}</td>
+      <td>{{ club.code }}</td>
+      <td>
+        <button (click)="jumpToMatch(club)" class="btn btn-primary">meccsek</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
